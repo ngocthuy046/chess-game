@@ -1,0 +1,30 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor "Player" as player
+actor "System" as system
+
+rectangle "Chess Game" {
+    usecase "Handle Game End" as handleGameEnd
+    usecase "Handle Move Validation" as handleMoveValidation
+    usecase "Save Game Result" as saveGameResult
+    usecase "Get Game Status" as getGameStatus
+    usecase "Surrender" as surrender
+    usecase "Make move" as makeMove
+    usecase "Create Game" as createGame
+    usecase "Logout" as logout
+    usecase "Login" as login
+}
+
+player --> login
+player --> logout
+player --> createGame
+player --> makeMove
+player --> surrender
+player --> getGameStatus
+
+handleMoveValidation <-- system 
+saveGameResult <-- system 
+handleGameEnd <-- system 
+
+@enduml
